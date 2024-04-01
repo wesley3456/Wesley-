@@ -1,0 +1,17 @@
+from pynput import keyboard
+import webbrowser
+
+def on_press(key):
+    if key == keyboard.Key.space:
+        print("Space key pressed")
+    elif key == keyboard.Key.shift_r:
+        print("Right shift key pressed")
+    elif key == "não":
+        print("Não key pressed")
+    elif key == "sim":
+        print("Sim key pressed")
+        url = "https://www.youtube.com/results?search_query=python"
+        webbrowser.open(url)
+
+with keyboard.Listener(on_press=on_press) as listener:
+    listener.join()
